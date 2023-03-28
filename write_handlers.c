@@ -168,7 +168,7 @@ int write_unsgnd(int is_negative, int ind,
 		return (0); /* printf(".0d", 0)  no char is printed */
 
 	if (precision > 0 && precision < m)
-		padd = ' ';
+		n = ' ';
 
 	while (precision > m)
 	{
@@ -177,20 +177,20 @@ int write_unsgnd(int is_negative, int ind,
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
-		m = '0';
+		n = '0';
 
 	if (width > m)
 	{
 		for (i = 0; i < width - m; i++)
-			buffer[i] = m;
+			buffer[i] = n;
 
 		buffer[i] = '\0';
 
-		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
+		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>n]*/
 		{
 			return (write(1, &buffer[ind], m) + write(1, &buffer[0], i));
 		}
-		else /* Asign extra char to left of padding [padd>buffer]*/
+		else /* Asign extra char to left of padding [n>buffer]*/
 		{
 			return (write(1, &buffer[0], i) + write(1, &buffer[ind], m));
 		}
