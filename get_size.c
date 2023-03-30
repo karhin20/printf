@@ -1,26 +1,26 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * get_size - Calculates the size to cast the argument
+ * main - main
  *
- * @format: Formatted string in which to print the arguments
- * @i: List of arguments to be printed.
- *
- * Return: size
+ * Return: 0
  */
-int get_size(const char *format, int *i)
+
+int main(void)
 {
-	int x = *i + 1;
-	int y = 0;
+	int i = 123;
+	long int li = 1234567890;
+	short int si = 123;
+	unsigned int ui = 123;
+	unsigned long int uli = 1234567890;
+	unsigned short int usi = 123;
 
-	if (format[x] == '1')
-		y = S_LONG;
-	else if (format[x] == 'h')
-		y = S_SHORT;
+	printf("%d\n", i);
+	printf("%ld\n", li);
+	printf("%hi\n", si);
+	printf("%u\n", ui);
+	printf("%lu\n", uli);
+	printf("%hu\n", usi);
 
-	if (y == 0)
-		*i = x - 1;
-	else
-		*i = x;
-	return (y);
+	return (0);
 }
