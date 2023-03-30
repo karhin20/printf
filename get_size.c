@@ -6,14 +6,14 @@
  * @format: Formatted string in which to print the arguments
  * @i: List of arguments to be printed
  *
- * Return: size
+ * Return: y
  */
 int get_size(const char *format, int *i)
 {
 	int x = *i + 1;
 	int y = 0;
 
-	if (format[x] == '1')
+	if (format[x] == 'l')
 		y = S_LONG;
 	else if (format[x] == 'h')
 		y = S_SHORT;
